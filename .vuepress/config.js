@@ -1,10 +1,11 @@
 module.exports = {
-	title: 'A VuePress project',
-	description: 'This is a try at a VuePress project',
+	title: 'Alex does the #100DaysOfCode 💥',
+	description: '',
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/'},
-			{ text: 'Guides', link: '/guide/'},
+			{ text: 'Blog', link: '/blog/'},
+			{ text: 'About', link: '/about/'}
 		],
 	},
 	dest: 'public',
