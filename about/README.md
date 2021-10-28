@@ -1,3 +1,3 @@
 # I am Alexandre! 👋
 
-<img :src="$withBase('./.vuepress/public/ayoungapinto.jpeg')" alt="foo">
+![a picture of alexandre as a very young child](./ayoungapinto.jpeg)
