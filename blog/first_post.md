@@ -1,10 +1,10 @@
 ---
-title: Day 0 - setting up the blog && declaration of intentions 🎉
+title: Day 0 - setting up the blog && declaration of intent 🎉
 date: 2021-10-28
-description: "Assessment of my current tools, and motivation for the next 100 days!"
+description: Assessment of my current tools, and motivation for the next 100 days!
 ---
 
-# Day 0 - setting up the blog && declaration of intent 🎉
+# {{ $page.title }}
 
 ### Today's achievements ⬇️
 - set up and deployed **this blog!**
