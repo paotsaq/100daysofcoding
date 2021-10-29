@@ -5,7 +5,9 @@ module.exports = {
 		navbar: [
 			{ text: 'Home', link: '/'},
 			{ text: 'About', link: '/about/'},
-			{ text: 'Blog', link: '/blog/'}
+			{ text: 'Blog', link: '/blog/'},
+			{ text: 'GitHub', link: 'https://github.com/protsaq'},
+			{ text: 'bzzzzzzz', link: 'https://bzzzzzzz.buzz'}
 		],
 		sidebar: false,
 	},
