@@ -1,6 +1,7 @@
 module.exports = {
 	title: 'Alex does the #100DaysOfCode 💥',
 	description: '',
+	theme: 'default-prefers-color-scheme',
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/'},
