@@ -9,11 +9,15 @@ By October that year, I was enrolling in the first-ever [*piscine* at **42Lisboa
 And then there are the many areas of interest which I'll try to foster, by both practice and writing, in this new platform. It is mostly an exercise for me - but hopefully someone can get something out of this too. Welcome, and thank you for being here! 🙌
 
  <style>
- img {
-	display: block;
-	margin-right: 20px;
-	margin-bottom: 15px;
-	float: left;
-	transform: rotate(-4deg);
+	img {
+		display: block;
+		margin-right: 20px;
+		margin-bottom: 15px;
+		float: left;
+		transform: rotate(-4deg);
+}
+	p {
+		text-align: justify;
+		text-justify: inter-word;
 }
 </style>
