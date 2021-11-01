@@ -11,5 +11,8 @@ module.exports = {
 			{ text: 'bzzzzzzz', link: 'https://bzzzzzzz.buzz'}
 		],
 	},
+	plugins: [
+		"@kawarimidoll/tailwind",
+	],
 	dest: 'public',
 };
