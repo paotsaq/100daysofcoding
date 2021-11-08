@@ -21,6 +21,11 @@ For now, you can check the About page, and the Blog.
 		<td>Vue</td>
 	</tr>
 	<tr>
+		<td>explicit dark-mode 🕶</td>
+		<td>not all visitors can access the dark-mode</td>
+		<td>Vue</td>
+	</tr>
+	<tr>
 		<td>implement emojis</td>
 		<td>I want some Vim icons over here</td>
 		<td>Vue?</td>
