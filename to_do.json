@@ -1,0 +1,27 @@
+[
+	{
+	"description": "transition the list to a proper Vue component",
+	"motivation": "eases automation of the to-do list",
+	"technologies": "Vue, JS"
+	},
+	{
+	"description": "learn how to use Tmux",
+	"motivation": "have a more stable terminal environment",
+	"technologies": "Tmux, shell?"
+	},
+	{
+	"description": "fix tracklist parsing 🎵 ",
+	"motivation": "be able to automatically parse past radioshows",
+	"technologies": "Python"
+	},
+	{
+	"description": "get started with the RPi Docker environment",
+	"motivation": "encapsulate and replicate the raspberry environment",
+	"technologies": "Docker, shell"
+	},
+	{
+	"description": "implemented explicit dark-mode",
+	"motivation": "not all visitors can access the dark-mode",
+	"technologies": "Vue"
+	}
+]
