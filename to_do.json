@@ -23,5 +23,10 @@
 	"description": "implemented explicit dark-mode",
 	"motivation": "not all visitors can access the dark-mode",
 	"technologies": "Vue"
+	},
+	{
+	"description": "automate new post creation",
+	"motivation": "why waste time opening a folder and checking the latest post date?",
+	"technologies": "shell"
 	}
 ]
