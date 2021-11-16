@@ -1,5 +1,15 @@
 [
 	{
+	"description": "implement pagination of blog posts",
+	"motivation": "I can probably do this easily?",
+	"technologies": "Vue, JS"
+	},
+	{
+	"description": "implement automatic fetching of records",
+	"motivation": "the website looks stale, outdated; those are old records!",
+	"technologies": "shell"
+	},
+	{
 	"description": "learn how to use Tmux",
 	"motivation": "have a more stable terminal environment",
 	"technologies": "Tmux, shell?"
@@ -17,11 +27,11 @@
 	{
 	"description": "implemented explicit dark-mode",
 	"motivation": "not all visitors can access the dark-mode",
-	"technologies": "Vue"
+	"technologies": "Vue, JS"
 	},
 	{
-	"description": "automate new post creation",
-	"motivation": "why waste time opening a folder and checking the latest post date?",
+	"description": "automate new post creation / insertion of to-do",
+	"motivation": "eliminate the need of opening a file, copy-pasting template, etc.",
 	"technologies": "shell"
 	}
 ]
