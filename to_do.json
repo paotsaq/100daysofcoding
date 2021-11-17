@@ -1,10 +1,5 @@
 [
 	{
-	"description": "transition the list to a proper Vue component",
-	"motivation": "eases automation of the to-do list",
-	"technologies": "Vue, JS"
-	},
-	{
 	"description": "learn how to use Tmux",
 	"motivation": "have a more stable terminal environment",
 	"technologies": "Tmux, shell?"
