@@ -1,13 +1,13 @@
 <template>
-				<div>
-								<div class="post" v-for="post in posts">
-												<div class="postInfo">
-																<router-link :to="post.path">{{ post.frontmatter.title }}</router-link>
-																<time style="color: #2f855e; float:right; font-weight: 600"> {{ processedDate(post.frontmatter.date) }} </time>
-												</div>
-												<div>{{ post.frontmatter.description }}</div>
-								</div>
-				</div>
+	<div>
+		<div class="post" v-for="post in posts">
+			<div class="postInfo">
+				<router-link :to="post.path">{{ post.frontmatter.title }}</router-link>
+				<time style=""> {{ processedDate(post.frontmatter.date) }} </time>
+			</div>
+		<div>{{ post.frontmatter.description }}</div>
+	</div>
+</div>
 </template>
 
 <script>
@@ -30,21 +30,31 @@ export default {
 <style scoped>
 
 .post {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .postInfo {
   border-bottom: 1px solid #a7b1bc;
-	display: flex;
-	display: flex;
+  display: flex;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-bottom: .3rem;
 }
 .postInfo > a { 
   font-size: 1.65rem;
-  padding-bottom: .3rem;
   font-weight: 600;
-	line-height: 1.25;
-	width: 85vw;
+  line-height: 1.25;
+  width: 80vw;
+  margin-right: 40px;
 }
 
+.postInfo > time { 
+  display: inline-block;
+  align-self: flex-end;
+  color: #2f855e;
+  font-weight: 400;
+}
 
 </style>
