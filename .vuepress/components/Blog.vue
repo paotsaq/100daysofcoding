@@ -53,7 +53,7 @@ export default {
 .postInfo > time { 
   display: inline-block;
   align-self: flex-end;
-  color: #2f855e;
+  color: #eaecef;
   font-weight: 400;
 }
 
