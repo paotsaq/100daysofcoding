@@ -1,5 +1,10 @@
 [
 	{
+	"description": "implement comments on blog posts",
+	"motivation": "I want to hear back from you too! 🧜‍♂️",
+	"technologies": "Vue, JS"
+	},
+	{
 	"description": "implement pagination of blog posts",
 	"motivation": "I can probably do this easily?",
 	"technologies": "Vue, JS"
@@ -25,7 +30,7 @@
 	"technologies": "Docker, shell"
 	},
 	{
-	"description": "implemented explicit dark-mode",
+	"description": "implement explicit dark-mode",
 	"motivation": "not all visitors can access the dark-mode",
 	"technologies": "Vue, JS"
 	},
