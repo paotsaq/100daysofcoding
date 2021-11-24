@@ -6,10 +6,10 @@
 				<time style=""> {{ processedDate(post.frontmatter.date) }} </time>
 			</div>
 			<div>{{ post.frontmatter.description }}</div>
-			<div class="tags" v-if="'tags' in post.frontmatter">
-				<div class="tag" v-for="tag in getTags(post.frontmatter.tags)">
-					{{ tag }}
-				</div>
+			<div class="postTags" v-if="'tags' in post.frontmatter">
+				<ul class="tag" v-for="tag in getTags(post.frontmatter.tags)">
+					<li>{{ tag }}</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -29,7 +29,7 @@ export default {
 				 return postDate.split('T')[0].split('-').reverse().join('/')
 				 },
 			 getTags(tagsLine) {
-				 return tagsLine.split(',').map(x => x.trim())
+				 return tagsLine.split(',').map(x => x.trim()).filter(x =>x.length > 0)
 				 }
 			 }
 }
@@ -49,6 +49,7 @@ export default {
 	  margin-inline-end: 0px;
 	  padding-bottom: .3rem;
 	}
+
 	.postInfo > a { 
 	  font-size: 1.65rem;
 	  font-weight: 600;
@@ -60,30 +61,47 @@ export default {
 	.postInfo > time { 
 	  display: inline-block;
 	  align-self: flex-end;
-	  color: #eaecef;
+	  color: #38a263;
 	  font-weight: 400;
 	}
 
-	.tags {
+	@media (prefers-color-scheme: dark) {
+		.postInfo > time {
+		  color: #eaecef;
+		}
+	}
+
+	.postTags {
+      list-style: none;
+      margin: 6px 0 0 0;
 	  display: inline-block;
 	  align-self: flex-end;
 	}
 
 	.tag {
 	  background: #eee;
-	  border-radius: 3px 0 0 3px;
+	  border-radius: 7px 0 0 7px;
 	  color: #999;
 	  display: inline-block;
-	  height: 20px;
-	  line-height: 26px;
-	  padding: 0 20px 0 23px;
+	  line-height: 20px;
+	  padding: 0 17px 0 20px;
 	  position: relative;
-	  margin: 0 10px 10px 0;
+	  margin: 0 10px 0 0;
 	  text-decoration: none;
-	  text-size: 10;
+	  font-size: 11px;
 	  -webkit-transition: color 0.2s;
 	}
 
-	.tag > {
+	@media (prefers-color-scheme: dark) {
+		.tag {
+		  background: #383737;
+		  color: #d9ffd2;
+		  -webkit-transition: color 0.2s;
+		}
+	}
 
+	li::marker {
+	  font-size: 150%;
+	  color: white;
+	}
 </style>
