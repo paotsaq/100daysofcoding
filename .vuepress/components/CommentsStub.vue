@@ -27,6 +27,7 @@
 </template>
 
 <style>
+	html {background-color: red}
 	.formElement {
 		display: flex;
 		flex-direction: column;
