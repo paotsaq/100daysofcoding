@@ -13,6 +13,7 @@ module.exports = {
 	},
 	plugins: [
 		"@kawarimidoll/tailwind",
+		"axios",
 	],
 	dest: 'public',
 };

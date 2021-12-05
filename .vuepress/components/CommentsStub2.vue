@@ -24,6 +24,13 @@
 			</div>
 			<button type='submit' v-on:click="submitForm">Submit</button>
 		</form>
+		<div>
+			<br>
+			(<i>write something on the boxes above to test!</i>)<br>
+			<b>This is your name: {{ this.form.name }} </b><br>
+			<b>This is your email: {{ this.form.email }} </b><br>
+			<b>This is your comment: {{ this.form.comment }} </b>
+		</div>
 	</div>
 </template>
 

@@ -12,6 +12,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"@kawarimidoll/vuepress-plugin-tailwind": "^2.0.0",
+		"axios": "^0.24.0",
 		"vuepress": "^1.8.2",
 		"vuepress-theme-default-prefers-color-scheme": "^2.0.0"
 	}
