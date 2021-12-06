@@ -24,13 +24,6 @@
 			<button type='submit' @click.prevent="submitForm" >Submit</button>
 			<div class="message success" v-if="postSuccess">Your comment was sent, and is pending approval! 🥳</div>
 		</form>
-		<div>
-			<br>
-			(<i>write something on the boxes above to test!</i>)<br>
-			<b>This is your name:</b> {{ this.form.name }} <br>
-			<b>This is your email:</b> {{ this.form.email }} <br>
-			<b>This is your comment:</b> {{ this.form.comment }}
-		</div>
 	</div>
 </template>
 
