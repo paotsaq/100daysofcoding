@@ -35,7 +35,8 @@
 			  form: {
 				name: '',
 				email: '',
-				comment: ''
+				comment: '',
+				post: this.dayNumber(),
 			  },
 			    nameError: false,
 			    commentError: false,
@@ -44,6 +45,9 @@
 			}
 		  },
 		  methods: {
+			dayNumber () {
+				return this.$page.title.split(' ')[1];
+			},
 			submitForm() {
 				this.postSuccess = false;
 				this.nameError = this.form.name === ''
@@ -103,5 +107,4 @@
 		color: green;
 		font-size: 14px;
 	}
-
 </style>
