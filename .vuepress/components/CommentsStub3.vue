@@ -30,6 +30,7 @@
 <script>
 	export default {
 		name: "comments",
+		props: ['page'],
 		  data() {
 			return {
 			  form: {
@@ -44,9 +45,16 @@
 			    postError: false,
 			}
 		  },
+
+		  computed: {
+			  test() {
+				  return this.$site.title;
+			  }
+		  },
 		  methods: {
 			dayNumber () {
-				return this.$page.title.split(' ')[1];
+				console.log(this.page.title);
+				return this.page.title.split(' ')[1];
 			},
 			submitForm() {
 				this.postSuccess = false;
@@ -90,7 +98,7 @@
 		textarea, input {
 			background-color: #3695634f;
 			color: white;
-		},
+		}
 		::placeholder {
 			color: gray;
 		}
