@@ -1,5 +1,19 @@
 <template>
 	<div class="commentsForm">
+		<h3>Some words from the readers 🌏</h3>
+		<div class="postedComments">
+			<div class="commentInfo">
+				<div class="author">John Doe</div>
+				<div class="date">at 10/10/2021</div>
+			</div>
+			<p class="commentContent">What a great blog post! It is very near to being a literary masterpiece. Why would one need Proust, when we have this? 🙇‍♂️</p>
+			<div class="commentInfo">
+				<div class="author">Jane Doe</div>
+				<div class="date">at 11/10/2021</div>
+			</div>
+			<p class="commentContent">For a basic commenting system, this is not so bad. Authentication is non-existing, of course, and there won't be, for now, any possibility of direct reply. But it seems great fun to be able to contribute to these posts! 👩‍🚀</p>
+		</div>
+		<h3>Let me know what you think! ✍️</h3>
 		<form>
 			<div class="formElement">
 				<label>What shall I call you?</label>
@@ -28,14 +42,18 @@
 </template>
 
 <script>
+	import axios from "axios";
+
 	export default {
+		props: ['title'],
 		name: "comments",
-		  data() {
+		data() {
 			return {
 			  form: {
 				name: '',
 				email: '',
 				comment: '',
+				day: this.title.split()[1],
 			  },
 			    nameError: false,
 			    commentError: false,
@@ -51,6 +69,7 @@
 				if (!(this.commentError || this.nameError)) {
 					this.nameError = false;
 					this.commentError = false;
+					// send request
 					this.postSuccess = true;
 					 this.form = {
 						name: '',
@@ -63,7 +82,35 @@
 		};
 </script>
 
-<style>
+<style scope>
+	.postedComments {
+		display: flex;
+		flex-direction: column;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 20px;
+	}
+
+	.postedComments > h3 {
+		margin-bottom: 2px;
+	}
+
+	.commentInfo {
+		display: flex;
+		flex-direction: horizontal;
+	}
+
+	.commentInfo > div { margin-right: 5px;}
+
+	.commentContent {
+		margin-top: 2px;
+		line-height: 1.4;
+	}
+
+	.author {
+		font-weight: bold;
+	}
+
 	.formElement {
 		display: flex;
 		flex-direction: column;
