@@ -100,7 +100,6 @@
 			  return req;
 			});
 			
-			this.getComments();
 		},
 };
 </script>
