@@ -1,25 +1,5 @@
 <template>
   <div class="commentsForm">
-    <h3>Some words from the readers 🌏</h3>
-    <div class="postedComments">
-		<div v-if="this.comments.length == 0">
-			There are no comments...yet! 
-		</div>
-		<div v-else>
-{{ this.comments }}
-			number of comments: {{ this.comments.length }} <br>
-			<div v-for comment in this.comments>
-				<div class="commentInfo">
-					<div class="author">John Doe</div>
-					<div class="date">at 10/10/2021</div>
-				</div>
-				<p class="commentContent">
-				What a great blog post! It is very near to being a literary masterpiece.
-				Why would one need Proust, when we have this? 🙇‍♂️
-				</p>
-			</div>
-		</div>
-    </div>
     <h3>Let me know what you think! ✍️</h3>
     <form>
       <div class="formElement">
@@ -47,7 +27,7 @@
       </div>
       <div class="formElement">
         <label>Say what you will!</label>
-        <textarea v-model="form.comment"></textarea>
+        <textarea v-model="form.body"></textarea>
         <div class="message error" v-if="commentError">
           This field cannot be empty!
         </div>
@@ -56,23 +36,27 @@
       <div class="message success" v-if="postSuccess">
         Your comment was sent, and is pending approval! 🥳
       </div>
+      <div class="message error" v-if="postError">
+        For some reason, your comment did not go through... maybe try it again later? ☹️
+      </div>
     </form>
   </div>
 </template>
 
 <script>
 import ax from "../utils/commentsAxios.js";
+var FormData = require('form-data');
 
 export default {
   props: ["title"],
-  name: "comments",
+  name: "commentsForm",
   data() {
     return {
+      formData: new FormData(),
       form: {
         name: "",
         email: "",
-        comment: "",
-        day: this.title.split(" ")[1],
+        body: "",
       },
       nameError: false,
       commentError: false,
@@ -83,89 +67,46 @@ export default {
   },
 
   methods: {
-
 	postComment() {
-		ax.post('/post_comment', this.form)
-		.then(r => {
-			console.dir(r, {depth: null, colors: true});
-			console.log(r.status, "TADFA");
-		})
+		console.log(this.form);
+		ax.post("/post_comment", this.formData)
+		  .then(r => {
+      
+		  this.postSuccess = true;
+        this.form = {
+          name: "",
+          email: "",
+          body: "",
+          post: "",
+        
+		  }
+    })
 		.catch(r => {
-			console.log(r.status, "TADFA");
+			this.postError = true;
 		})
 	},
 
     submitForm() {
+      this.postError = false;
       this.postSuccess = false;
       this.nameError = this.form.name === "";
-      this.commentError = this.form.comment === "";
+      this.commentError = this.form.body === "";
       if (!(this.commentError || this.nameError)) {
         this.nameError = false;
         this.commentError = false;
+        this.formData.append('name', this.form.name);
+        this.formData.append('post', this.title.split(" ")[1],);
+        this.formData.append('body', this.form.body);
+        this.formData.append('email', this.form.email);
 
-        this.postComment();
-
-        this.postSuccess = true;
-        this.form = {
-          name: "",
-          email: "",
-          comment: "",
-        };
-      }
+        this.postComment();       
+      };
+    }
     },
-
-    getComments() {
-      ax.get("get_comments", {
-        params: { day: this.form.day }
-      }).then(r => {
-		  if (r.status == 200) {
-			  this.comments = r.data;
-			  console.log("SUCCESS");
-		  }
-		  else {
-			  console.log("no comments!");
-			  console.log(this.comments);
-		  }
-	  })
-    },
-  },
-
-  mounted() {
-    this.getComments();
-  },
 };
 </script>
 
 <style>
-.postedComments {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-}
-
-.postedComments > h3 {
-  margin-bottom: 2px;
-}
-
-.commentInfo {
-  display: flex;
-  flex-direction: horizontal;
-}
-
-.commentInfo > div {
-  margin-right: 5px;
-}
-
-.commentContent {
-  margin-top: 2px;
-  line-height: 1.4;
-}
-
-.author {
-  font-weight: bold;
-}
 
 .formElement {
   display: flex;
@@ -191,7 +132,7 @@ textarea {
     background-color: #3695634f;
     color: white;
   }
-  ,
+  
   ::placeholder {
     color: gray;
   }
@@ -203,7 +144,7 @@ textarea {
 
 .error {
   color: red;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .success {

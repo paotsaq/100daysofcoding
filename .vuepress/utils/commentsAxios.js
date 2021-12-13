@@ -4,7 +4,6 @@ const axios = require('axios');
 
 const ax = axios.create({
 	baseURL: 'http://localhost:8000',
-    // some more nice things.
 })
 
 ax.interceptors.response.use((res) => { 
