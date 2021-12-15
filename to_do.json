@@ -15,11 +15,6 @@
 	"technologies": "shell"
 	},
 	{
-	"description": "learn how to use Tmux",
-	"motivation": "have a more stable terminal environment",
-	"technologies": "Tmux, shell?"
-	},
-	{
 	"description": "fix tracklist parsing 🎵 ",
 	"motivation": "be able to automatically parse past radioshows",
 	"technologies": "Python"
