@@ -20,11 +20,6 @@
 	"technologies": "Python"
 	},
 	{
-	"description": "get started with the RPi Docker environment",
-	"motivation": "encapsulate and replicate the raspberry environment",
-	"technologies": "Docker, shell"
-	},
-	{
 	"description": "implement explicit dark-mode",
 	"motivation": "not all visitors can access the dark-mode",
 	"technologies": "Vue, JS"
