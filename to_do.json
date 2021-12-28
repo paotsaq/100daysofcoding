@@ -1,5 +1,10 @@
 [
 	{
+	"description": "add SSL support to Icecast",
+	"motivation": "otherwise, a mixed content warning is triggered",
+	"technologies": "icecast, shell, faith 📿"
+	},
+	{
 	"description": "implement comments on blog posts",
 	"motivation": "I want to hear back from you too! 🧜‍♂️",
 	"technologies": "Vue, JS"
