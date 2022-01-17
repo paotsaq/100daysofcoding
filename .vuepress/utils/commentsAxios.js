@@ -3,7 +3,7 @@ const axios = require('axios');
 // const BASE_URL = process.env.BLOG_ENV == 'production' ? 'realwebsite.com' : 'http://localhost:8000';
 
 const ax = axios.create({
-	baseURL: 'http://localhost:8000',
+	baseURL: 'https://bzzzzzzz.buzz/api',
 })
 
 ax.interceptors.response.use((res) => { 
