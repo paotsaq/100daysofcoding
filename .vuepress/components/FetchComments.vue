@@ -36,8 +36,9 @@ export default {
 	  }
   },
   methods: {
-	buildDate(date) {
-		let x = date.split('T')[0].split('-');
+	buildDate(fullDate) {
+		let x = fullDate.split('T')[0].split('-');
+		console.log(x);
 		return [x[2], x[1], x[0]].join('/');
 	},
     getComments() {

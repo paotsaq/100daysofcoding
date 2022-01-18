@@ -72,7 +72,7 @@ export default {
 		ax.post("/post_comment", this.formData)
 		  .then(r => {
       
-		  this.postSuccess = true;
+		this.postSuccess = true;
         this.form = {
           name: "",
           email: "",
