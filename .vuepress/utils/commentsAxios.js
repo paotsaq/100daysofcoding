@@ -6,8 +6,6 @@ const ax = axios.create({
 	baseURL: 'https://bzzzzzzz.buzz/api',
 })
 
-ax.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-ax.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
 ax.interceptors.response.use((res) => { 
     console.log(res);
     // Important: response interceptors **must** return the response.
