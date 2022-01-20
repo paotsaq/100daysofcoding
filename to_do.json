@@ -1,5 +1,10 @@
 [
 	{
+	"description": "create a RSS feed for the podcasts ✍️",
+	"motivation": "automates distribution of the audio files",
+	"technologies": "RSS, xml, automation"
+	},
+	{
 	"description": "implement pagination of blog posts",
 	"motivation": "I can probably do this easily?",
 	"technologies": "Vue, JS"
