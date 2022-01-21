@@ -1,5 +1,15 @@
 [
 	{
+	"description": "filter posts by tags",
+	"motivation": "need a way to get my musings all at once",
+	"technologies": "JS, Vue"
+	},
+	{
+	"description": "fix the search bar!",
+	"motivation": "search bars are useful, and mine is broken 😬",
+	"technologies": "JS, Vue (?)"
+	},
+	{
 	"description": "create a RSS feed for the podcasts ✍️",
 	"motivation": "automates distribution of the audio files",
 	"technologies": "RSS, xml, automation"
