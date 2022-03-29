@@ -55,11 +55,24 @@ export default {
 	flex-direction: row;
 }
 
+@media (max-width: 850px) {
+.pageDisplay {
+	flex-direction: column;	
+  }
+}
+
 .blogPosts {
 	display: flex;
 	flex-direction: column;
-	max-width: 740px;
+	max-width: 85%;
 }
+
+@media (max-width: 850px) {
+.blogPosts {
+	max-width: 100%;
+  }
+}
+
 .post {
   margin-bottom: 20px;
 }
@@ -82,6 +95,11 @@ export default {
   margin-right: 40px;
 }
 
+@media (max-width: 850px) {
+.postInfo > a {
+	font-size: min(5.3vw, 1.65rem);	
+  }
+}
 .postInfo > time {
   display: inline-block;
   align-self: flex-end;

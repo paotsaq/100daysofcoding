@@ -34,7 +34,7 @@ export default {
   line-height: 20px;
   padding: 0 17px 0 20px;
   position: relative;
-  margin: 0 10px 0 0;
+  margin: 0 10px 5px 0;
   text-decoration: none;
   font-size: 11px;
   -webkit-transition: color 0.2s;
@@ -42,10 +42,21 @@ export default {
 
 .tags {
   padding-top: 40px;
-  padding-left: 40px;
   top: 0;
   left: 0;
+  max-width: 15%;
 }
+
+@media (max-width: 850px) {
+.tags {
+    padding-top: 0px;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;;
+	max-width: 100%;
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   .tag {
