@@ -1,19 +1,21 @@
 <template>
   <div class="pageDisplay">
     <tagsFilter />
-	<div class="blogPosts">
-    <div class="post" v-for="post in posts">
-      <div class="postInfo">
-        <router-link :to="post.path">{{ post.frontmatter.title }}</router-link>
-        <time style=""> {{ processedDate(post.frontmatter.date) }} </time>
+    <div class="blogPosts">
+      <div class="post" v-for="post in posts">
+        <div class="postInfo">
+          <router-link :to="post.path">{{
+            post.frontmatter.title
+          }}</router-link>
+          <time style=""> {{ processedDate(post.frontmatter.date) }} </time>
+        </div>
+        <div>{{ post.frontmatter.description }}</div>
+        <div class="postTags" v-if="'tags' in post.frontmatter">
+          <ul class="tag" v-for="tag in getTags(post.frontmatter.tags)">
+            <li>{{ tag }}</li>
+          </ul>
+        </div>
       </div>
-      <div>{{ post.frontmatter.description }}</div>
-      <div class="postTags" v-if="'tags' in post.frontmatter">
-        <ul class="tag" v-for="tag in getTags(post.frontmatter.tags)">
-          <li>{{ tag }}</li>
-        </ul>
-      </div>
-    </div>
     </div>
   </div>
 </template>
@@ -25,10 +27,25 @@ export default {
   components: {
     tagsFilter,
   },
+  data() {
+    return {
+      filteredTags: [],
+    };
+  },
   computed: {
     posts() {
       return this.$site.pages
-        .filter((x) => x.path.startsWith("/blog/") && !x.frontmatter.blog_index)
+        .filter(
+          (x) =>
+            x.path.startsWith("/blog/") &&
+            !x.frontmatter.blog_index &&
+            (this.filteredTags.length == 0 ||
+              ("tags" in x.frontmatter &&
+                x.frontmatter.tags
+                  .toLowerCase()
+                  .split(",")
+                  .some((elem) => this.filteredTags.includes(elem.trim()))))
+        )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
@@ -49,27 +66,26 @@ export default {
 </script>
 
 <style scoped>
-
 .pageDisplay {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 850px) {
-.pageDisplay {
-	flex-direction: column;	
+  .pageDisplay {
+    flex-direction: column;
   }
 }
 
 .blogPosts {
-	display: flex;
-	flex-direction: column;
-	max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
 }
 
 @media (max-width: 850px) {
-.blogPosts {
-	max-width: 100%;
+  .blogPosts {
+    max-width: 100%;
   }
 }
 
@@ -91,13 +107,12 @@ export default {
   font-size: 1.65rem;
   font-weight: 600;
   line-height: 1.25;
-  width: 80vw;
   margin-right: 40px;
 }
 
 @media (max-width: 850px) {
-.postInfo > a {
-	font-size: min(5.3vw, 1.65rem);	
+  .postInfo > a {
+    font-size: min(5.3vw, 1.65rem);
   }
 }
 .postInfo > time {
