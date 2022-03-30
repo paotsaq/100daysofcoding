@@ -1,26 +1,37 @@
 <template>
   <div class="tags">
-	<div v-for="tagelement in results" class="tag">
-		<li>{{ tagelement }}</li>
-	</div>
+    <div
+      v-for="tagElement in allTags"
+      class="tag"
+      @click="activateTag(tagElement)"
+      :data-tag="tagElement.InnerHTML"
+    >
+      <li>{{ tagElement }}</li>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "tagsFilter",
+  props: ["allTags"],
   data() {
     return {
-      results: [
-	  "vue",
-	  "musings",
-	  "python",
-	  "css",
-	  "django",
-	  "flask",
-	  "haskell"
-	  ],
+      selectedTags: [],
     };
+  },
+  methods: {
+    activateTag(tagElement) {
+      if (!this.selectedTags.includes(tagElement))
+        this.selectedTags.push(tagElement);
+      else {
+        const index = this.selectedTags.indexOf(tagElement);
+        if (index > -1) {
+          this.selectedTags.splice(index, 1);
+        }
+      }
+	  console.log(this.selectedTags);
+    },
   },
 };
 </script>
@@ -37,7 +48,8 @@ export default {
   margin: 0 10px 5px 0;
   text-decoration: none;
   font-size: 11px;
-  -webkit-transition: color 0.2s;
+	  -webkit-transition: color 0.2s;
+  cursor: pointer;
 }
 
 .tags {
@@ -48,15 +60,14 @@ export default {
 }
 
 @media (max-width: 850px) {
-.tags {
+  .tags {
     padding-top: 0px;
-	display:flex;
-	flex-direction: row;
-	flex-wrap: wrap;;
-	max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   .tag {

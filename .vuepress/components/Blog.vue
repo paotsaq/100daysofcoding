@@ -1,6 +1,6 @@
 <template>
   <div class="pageDisplay">
-    <tagsFilter />
+    <tagsFilter :allTags="allTags" />
     <div class="blogPosts">
       <div class="post" v-for="post in posts">
         <div class="postInfo">
@@ -33,18 +33,33 @@ export default {
     };
   },
   computed: {
+    allBlogPosts() {
+      return this.$site.pages.filter(
+        (x) => x.path.startsWith("/blog/") && !x.frontmatter.blog_index
+      );
+    },
+    allTags() {
+      return Array.from(
+        new Set(
+          this.allBlogPosts
+            .map((x) => x.frontmatter.tags)
+            .join()
+            .toLowerCase()
+            .split(",")
+            .map((x) => x.trim())
+        )
+      );
+    },
     posts() {
-      return this.$site.pages
+      return this.allBlogPosts
         .filter(
           (x) =>
-            x.path.startsWith("/blog/") &&
-            !x.frontmatter.blog_index &&
-            (this.filteredTags.length == 0 ||
-              ("tags" in x.frontmatter &&
-                x.frontmatter.tags
-                  .toLowerCase()
-                  .split(",")
-                  .some((elem) => this.filteredTags.includes(elem.trim()))))
+            this.filteredTags.length == 0 ||
+            ("tags" in x.frontmatter &&
+              x.frontmatter.tags
+                .toLowerCase()
+                .split(",")
+                .some((elem) => this.filteredTags.includes(elem.trim())))
         )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
