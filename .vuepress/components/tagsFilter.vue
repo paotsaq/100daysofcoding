@@ -3,8 +3,11 @@
     <div
       v-for="tagElement in allTags"
       class="tag"
-      @click="activateTag(tagElement)"
-      :data-tag="tagElement.InnerHTML"
+      @click="
+        activateTag(tagElement);
+        changeTagColor(tagElement);
+      "
+      v-bind:id="tagElement"
     >
       <li>{{ tagElement }}</li>
     </div>
@@ -15,12 +18,23 @@
 export default {
   name: "tagsFilter",
   props: ["allTags"],
+  emits: ["emittedTags"],
   data() {
     return {
       selectedTags: [],
     };
   },
   methods: {
+    changeTagColor(tagElement) {
+      let elem = document.getElementById(tagElement);
+      if (this.selectedTags.includes(tagElement)) {
+        elem.style["color"] = "var(--selectedTagLabelColor)";
+        elem.style["background"] = "var(--selectedTagColor)";
+      } else {
+        elem.style["color"] = "var(--tagLabelColor)";
+        elem.style["background"] = "var(--tagColor)";
+		}
+    },
     activateTag(tagElement) {
       if (!this.selectedTags.includes(tagElement))
         this.selectedTags.push(tagElement);
@@ -30,17 +44,35 @@ export default {
           this.selectedTags.splice(index, 1);
         }
       }
-	  console.log(this.selectedTags);
+      this.emitTags();
+    },
+    emitTags() {
+      this.$emit("emittedTags", this.selectedTags);
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
+:root {
+  --tagColor: #cfe8c2;
+  --tagLabelColor: black;
+  --selectedTagColor: #7a8883;
+  --selectedTagLabelColor: white; 
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  --tagColor: #383737;
+  --tagLabelColor: #d9ffd2;
+  --selectedTagColor: ##27604b;
+  --selectedTagLabelColor: white; 
+  }
+}
+
 .tag {
-  background: #eee;
+  background: var(--tagColor);
   border-radius: 7px 0 0 7px;
-  color: #999;
+  color: var(--tagLabelColor);
   display: inline-block;
   line-height: 20px;
   padding: 0 17px 0 20px;
@@ -48,7 +80,8 @@ export default {
   margin: 0 10px 5px 0;
   text-decoration: none;
   font-size: 11px;
-	  -webkit-transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  -webkit-transition: background 0.2s;
   cursor: pointer;
 }
 
@@ -66,14 +99,6 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 100%;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .tag {
-    background: #383737;
-    color: #d9ffd2;
-    -webkit-transition: color 0.2s;
   }
 }
 

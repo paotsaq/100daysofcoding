@@ -1,6 +1,6 @@
 <template>
   <div class="pageDisplay">
-    <tagsFilter :allTags="allTags" />
+    <tagsFilter :allTags="allTags" @emittedTags="filteredTags = $event"/>
     <div class="blogPosts">
       <div class="post" v-for="post in posts">
         <div class="postInfo">
@@ -47,6 +47,7 @@ export default {
             .toLowerCase()
             .split(",")
             .map((x) => x.trim())
+			.filter ((x) => x.length > 0)
         )
       );
     },
@@ -150,18 +151,36 @@ export default {
   align-self: flex-end;
 }
 
+<style>
+:root {
+  --tagColor: #cfe8c2;
+  --tagLabelColor: black;
+  --selectedTagColor: #7a8883;
+  --selectedTagLabelColor: white; 
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  --tagColor: #383737;
+  --tagLabelColor: #d9ffd2;
+  --selectedTagColor: #27604b;
+  --selectedTagLabelColor: white; 
+  }
+}
+
 .tag {
-  background: #eee;
+  background: var(--tagColor);
   border-radius: 7px 0 0 7px;
-  color: #999;
+  color: var(--tagLabelColor);
   display: inline-block;
   line-height: 20px;
   padding: 0 17px 0 20px;
   position: relative;
-  margin: 0 10px 0 0;
+  margin: 0 10px 5px 0;
   text-decoration: none;
   font-size: 11px;
   -webkit-transition: color 0.2s;
+  -webkit-transition: background 0.2s;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
