@@ -1,5 +1,15 @@
 [
 	{
+	"description": "flag unfinished posts, and implement lineage 📍",
+	"motivation": "this should be a more organised bank of knowledge!",
+	"technologies": "JS, Vue"
+	},
+	{
+	"description": "automate new post creation / insertion of to-do",
+	"motivation": "eliminate the need of opening a file, copy-pasting template, etc.",
+	"technologies": "shell"
+	},
+	{
 	"description": "fix the search bar!",
 	"motivation": "search bars are useful, and mine is broken 😬",
 	"technologies": "JS, Vue (?)"
@@ -18,10 +28,5 @@
 	"description": "implement explicit dark-mode",
 	"motivation": "not all visitors can access the dark-mode",
 	"technologies": "Vue, JS"
-	},
-	{
-	"description": "automate new post creation / insertion of to-do",
-	"motivation": "eliminate the need of opening a file, copy-pasting template, etc.",
-	"technologies": "shell"
 	}
 ]
