@@ -4,6 +4,10 @@ I'm yet not sure how to properly organise this; this is just a way for me to put
 
 (Rest assured I'll eventually rework the design on this page)
 
+### Good programming 🧩
+
+[How to Write a Spelling Corrector](https://norvig.com/spell-correct.html), by Peter Norvig - seems like a great, thorough article.
+
 ### Functional programming 🍷
 (I've been interested in functional programming for a while, now.)
 
