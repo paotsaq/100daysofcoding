@@ -6,7 +6,9 @@ I'm yet not sure how to properly organise this; this is just a way for me to put
 
 ### Good programming 🧩
 
-[How to Write a Spelling Corrector](https://norvig.com/spell-correct.html), by Peter Norvig - seems like a great, thorough article.
+[How to Write a Spelling Corrector](https://norvig.com/spell-correct.html), by Peter Norvig - seems like a great, thorough article. *(added at 09/12/22)*
+
+[An Intuition for Lisp Syntax](https://stopa.io/post/265) - a cool exercise in lisp-ifying Javascript code. *(added at 09/12/22)*
 
 ### Functional programming 🍷
 (I've been interested in functional programming for a while, now.)
